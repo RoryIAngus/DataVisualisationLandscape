@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 292f8caa712f4504b828b52ba6c8dda7
+timeCreated: 1477044449
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - csv: {fileID: 4900000, guid: 7252af2829b28e34b86e7f5abc43c88b, type: 3}
+  - input: {instanceID: 0}
+  - output: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

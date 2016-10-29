@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e902a31b721c5234fade4b7458998441
+timeCreated: 1476970599
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - brick: {fileID: 4000010013632628, guid: daaf05d0ed51a144aaf534a0592ed45f, type: 2}
+  - cylinder: {fileID: 4000012380413134, guid: 9dc80d7f387f8b44ebc80a634512b8d0, type: 2}
+  - pyramid: {fileID: 4000013467904548, guid: 7f296190b82cb5642b64791c664b2388, type: 2}
+  - pill: {fileID: 4000011589227644, guid: 38506358d4eade945b92db64699c1984, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
