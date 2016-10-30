@@ -1,16 +1,13 @@
 ﻿// code from https://docs.unity3d.com/Manual/InstantiatingPrefabs.html
+// additional code created by Rory Angus and available here - https://github.com/RoryIAngus/DataVisualisationLandscape
 
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-
-
 public class Instantiation : MonoBehaviour
 {
-
-    //public read_stockland_basic other;
 
     public GameObject brick;
     public GameObject cylinder;
@@ -21,20 +18,20 @@ public class Instantiation : MonoBehaviour
 
     // Instantiates a prefab in a grid
 
-    public float gridX = 1f;
-    public float gridY = 1f;
-    public float spacing = 2f;
+    public float spacing = 2f;  // How much space between each object
+    public float x_scale = 1f;  // How big to scale the object in the x direction
+    public float y_scale = 1f;  // How big to scale the object in the y direction
+    public float z_scale = 1f;  // How big to scale the object in the z direction
 
     //variables to work with the csvfiles
     private read_file csvfile;  // Holds the csv file that is used as the source of the information
     private int csv_num_rows = 0;  // num of rows in the csv
-    //private int csv_maxrows_avenue = 0;  //the total size of the grid - grid is as long as the largest avenue
     private int csv_num_avenue = 0;  //Holds the number of avenues
     private string shape_building = "";  // Holds the value of the shape that we want to display
     private string shape_colour = "";  //Holds the value of the colour we want to set the building to
     private float shape_height = 0f; //Holds the value of the hight we want to set the building to
     private List<read_file.Row> rows_on_avenue_list;  //create a list variable 
-    private float ground_adjust_float = 1f;  //hold the value to move the object by depending on the type of shape
+    private float ground_adjust = 1f;  //hold the value to move the object by depending on the type of shape
     private Color building_colour = Color.white;  //hold the final colour of the object
 
 
@@ -50,7 +47,7 @@ public class Instantiation : MonoBehaviour
         csv_num_rows = csvfile.NumRows();
 
         //loop through all rows to get a distinct list of the avenues 
-        //A hashSet only allows distinct values to be added
+        //Note - A hashSet only allows distinct values to be added
         for (int i = 0; i < csv_num_rows; i++)
         {
             csv_avenues.Add(csvfile.GetAt(i).Avenue);
@@ -74,32 +71,34 @@ public class Instantiation : MonoBehaviour
             for (int x = 0; x < csv_num_rows; x++)
             {
 
-                // capture the shape, colour and height for each row
+                // read the shape, colour and height for each row
                 shape_building = rows_on_avenue_list[x].Building;  //Building = Shape
                 shape_colour = rows_on_avenue_list[x].Tenant;  //Tenant = Colour
                 shape_height = float.Parse(rows_on_avenue_list[x].Floors);  //Floors = Height - need to convert string to int
 
                 // ----------------- Select the right shape -----------------
                 // assign the correct prefabrication depending on the rows shape.
+                // not all shapes have the middle set to ground level
+
                 if (shape_building == "Square")
                 {
                     shape = brick;
-                    ground_adjust_float = 2.0f;  //value needed for bricks
+                    ground_adjust = 2.0f;  //value needed for bricks
                 }
                 else if (shape_building == "Pyramid")
                 {
                     shape = pyramid;
-                    ground_adjust_float = 2.0f;  //value needed for pyramids
+                    ground_adjust = 2.0f;  //value needed for pyramids
                 }
                 else if (shape_building == "Pill")
                 {
                     shape = pill;
-                    ground_adjust_float = 1.0f;  //value needed for pill
+                    ground_adjust = 1.0f;  //value needed for pill
                 }
                 else if (shape_building == "Cylinder")
                 {
                     shape = cylinder;
-                    ground_adjust_float = 1.0f;  //value needed for cylinder
+                    ground_adjust = 1.0f;  //value needed for cylinder
                 }
                 else  // if error then use sphere
                 {
@@ -131,18 +130,23 @@ public class Instantiation : MonoBehaviour
 
 
                 //Create the vector location using the x and y coords - Set the Z based on the height of the object
-                Vector3 pos = new Vector3(y * spacing, shape_height / ground_adjust_float, x * spacing);    // the position of the y and x determine which way the array faces after it is built 
+                Vector3 pos = new Vector3(y * spacing, ((shape_height * z_scale) / ground_adjust), x * spacing);    // the position of the y and x determine which way the array faces after it is built 
                                                                                                             // divide by 2 on the height to make sure the bases are level
                                                                                                             // only use spacing on the X & Y coordinates not z otherwise it gets the height wrong
 
                 // use that shape variable to build the object
+                // this is the section of code that create the actual object and places it in space
+                // uses the vector that was defined above to place it in the correct location in space
+
                 GameObject shape_go = Instantiate(shape, pos, Quaternion.identity) as GameObject;
 
                 // set the colour of the object
                 shape_go.GetComponent<MeshRenderer>().material.color = building_colour;
 
                 // set the hight of the object
-                shape_go.transform.localScale = new Vector3(10f, shape_height, 10f);
+
+                shape_go.transform.localScale = new Vector3(x_scale, shape_height * z_scale, y_scale);  // Change the size of the shape using the height from the file and the other 3 dimensions to scale the shape
+
 
             }
         }

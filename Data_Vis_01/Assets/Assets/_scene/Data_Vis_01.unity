@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd3652a159b6b8478d2c653cc4d36c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  file: {fileID: 4900000, guid: 5274f8fc178f733458d58e0c3abb8e6e, type: 3}
+  file: {fileID: 4900000, guid: 688749901e3ce4c489812dd91594e968, type: 3}
 --- !u!114 &1976037830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,9 +380,10 @@ MonoBehaviour:
   pill: {fileID: 1000012031939932, guid: 38506358d4eade945b92db64699c1984, type: 2}
   pyramid: {fileID: 1000013682020696, guid: 7f296190b82cb5642b64791c664b2388, type: 2}
   sphere: {fileID: 1000012867723322, guid: 6d27e02e7d353224cb7946f0c6014d4d, type: 2}
-  gridX: 1
-  gridY: 1
   spacing: 10
+  x_scale: 10
+  y_scale: 10
+  z_scale: 1
 --- !u!4 &1976037831
 Transform:
   m_ObjectHideFlags: 0

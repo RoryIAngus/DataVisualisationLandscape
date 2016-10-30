@@ -87,7 +87,7 @@ public class MoveCamera : MonoBehaviour
 
 
         // ------------------------------ Keyboard stuff ------------------------------
-        //http://coffeebreakcodes.com/move-zoom-and-rotate-camera-unity3d/
+        //credit http://coffeebreakcodes.com/move-zoom-and-rotate-camera-unity3d/
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -105,14 +105,6 @@ public class MoveCamera : MonoBehaviour
         {
             transform.position += Vector3.back * keyboard_speed * Time.deltaTime;
         }
-
-
-        //reset - Rory's stuff -
-
-        //if (Input.GetKey(KeyCode.R))
-        //{
-
-        //}
 
     }
 }
