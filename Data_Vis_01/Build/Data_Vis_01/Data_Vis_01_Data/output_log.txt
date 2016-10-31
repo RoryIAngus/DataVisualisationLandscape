@@ -14,7 +14,7 @@ Platform assembly: C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Dat
 Loading C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Data_Vis_01\Build\Data_Vis_01\Data_Vis_01_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Data_Vis_01\Build\Data_Vis_01\Data_Vis_01_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Data_Vis_01\Build\Data_Vis_01\Data_Vis_01_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-- Completed reload, in  1.595 seconds
+- Completed reload, in  0.221 seconds
 Platform assembly: C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Data_Vis_01\Build\Data_Vis_01\Data_Vis_01_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\rory\Documents\GitHub\DataVisualisationLandscape\Data_Vis_01\Build\Data_Vis_01\Data_Vis_01_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
@@ -22,6 +22,6 @@ desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 4.017190 ms
+UnloadTime: 3.536958 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 1630 -> priority: 1 
+  Thread -> id: 2fe8 -> priority: 1 
